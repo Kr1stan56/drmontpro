@@ -1,6 +1,7 @@
 "use client"
 
-import { Sun, Mail, MapPin, ArrowUp } from "lucide-react"
+import { Phone, Mail, MapPin, ArrowUp } from "lucide-react"
+import Image from "next/image"
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -30,13 +31,18 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-                <Sun className="h-5 w-5 text-yellow-300" />
+            <div className="flex items-center gap-5">
+              <Image
+                src="/drmontpro_temni_transparent.png"
+                alt="DR Mont"
+                width={300}
+                height={180}
+                className="h-[180px] w-auto object-contain"
+              />
+              <div className="text-sm leading-relaxed text-slate-400">
+                DR MontPro,<br />
+                montaže in storitve, d.o.o.
               </div>
-              <span className="text-lg font-semibold" style={{ fontFamily: "var(--font-heading)" }}>
-                DR MontPro
-              </span>
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
               Specializirani za montažo sončnih elektrarn in gradbene storitve. 
@@ -67,6 +73,24 @@ export default function Footer() {
               Kontakt
             </h4>
             <ul className="space-y-3">
+              <li>
+                <a
+                  href="tel:+38669936133"
+                  className="flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+                >
+                  <Phone className="h-4 w-4" />
+                  Denis Ramšak: 069 936 133
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+38631392779"
+                  className="flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+                >
+                  <Phone className="h-4 w-4" />
+                  Denis Rojc: 031 392 779
+                </a>
+              </li>
               <li>
                 <a
                   href="mailto:drmontpro@gmail.com"

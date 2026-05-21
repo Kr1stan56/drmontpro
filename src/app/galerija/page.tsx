@@ -7,7 +7,7 @@ import Image from "next/image"
 
 const galleryItems = [
   {
-    src: "/monzaza.jpg",
+    src: "/prvaslika.jpg",
     title: "Montaža na terenu",
     category: "Montaže",
     span: true,

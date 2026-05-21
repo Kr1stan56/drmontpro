@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, MapPin, Send } from "lucide-react"
+import { Mail, MapPin, Phone, Send } from "lucide-react"
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -55,6 +55,26 @@ export default function Contact() {
                     Naslov
                   </h4>
                   <p className="mt-1 text-slate-600">Rakuševa ulica 8, 1000 Ljubljana</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cta/10 text-cta">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4
+                    className="text-base font-semibold text-primary"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    Telefon
+                  </h4>
+                  <a href="tel:+38669936133" className="mt-1 block text-slate-600 transition-colors hover:text-cta">
+                    Denis Ramšak: 069 936 133
+                  </a>
+                  <a href="tel:+38631392779" className="block text-slate-600 transition-colors hover:text-cta">
+                    Denis Rojc: 031 392 779
+                  </a>
                 </div>
               </div>
 
@@ -165,6 +185,26 @@ export default function Contact() {
             </form>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-12 overflow-hidden rounded-2xl shadow-sm"
+        >
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=14.495%2C46.038%2C14.515%2C46.050&layer=mapnik&marker=46.044%2C14.505"
+            width="100%"
+            height="350"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="DR MontPro lokacija"
+            className="rounded-2xl"
+          />
+        </motion.div>
       </div>
     </section>
   )

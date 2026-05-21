@@ -27,6 +27,15 @@ export default function Hero() {
             Montaža sončnih elektrarn in gradbenih storitev
           </motion.div>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="mb-2 text-sm font-medium uppercase tracking-widest text-slate-400"
+          >
+            DR MontPro, montaže in storitve, d.o.o.
+          </motion.p>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -97,7 +106,7 @@ export default function Hero() {
         >
           <div className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden rounded-3xl shadow-2xl shadow-sky-200/50">
             <Image
-              src="/drmontpro.jpg"
+              src="/prvaslika.jpg"
               alt="DR MontPro"
               fill
               className="object-cover"

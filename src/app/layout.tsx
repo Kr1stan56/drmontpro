@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   title: "DR MontPro | Montaža sončnih elektrarn in gradbene storitve",
   description:
     "DR MontPro - specializirani za montažo samooskrbnih sončnih elektrarn in gradbene storitve. Zanesljivost, kakovost in strokovnost.",
+  icons: {
+    icon: [
+      { url: "/favicon_svetla.ico", sizes: "32x32" },
+      { url: "/favicon_svetla_32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon_svetla_64.png", sizes: "64x64", type: "image/png" },
+    ],
+  },
   keywords: [
     "sončne elektrarne",
     "montaža sončnih elektrarn",

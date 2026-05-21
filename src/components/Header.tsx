@@ -23,14 +23,14 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-slate-200/80 bg-white/90 px-6 py-3 shadow-sm backdrop-blur-md">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/drmontpro.jpg"
+            src="/drmontpro_svetla_transparent.png"
             alt="DR MontPro"
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-xl object-cover"
+            width={180}
+            height={50}
+            className="h-12 w-auto object-contain"
           />
-          <span className="text-lg font-semibold text-primary" style={{ fontFamily: "var(--font-heading)" }}>
-            DR MontPro
+          <span className="text-lg font-bold text-primary" style={{ fontFamily: "var(--font-heading)" }}>
+            DR Mont
           </span>
         </Link>
 
