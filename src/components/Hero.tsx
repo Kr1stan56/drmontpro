@@ -9,9 +9,9 @@ export default function Hero() {
   const { t } = useLang()
 
   const stats = [
-    { label: t.hero.statYears, value: "10+" },
-    { label: t.hero.statProjects, value: "50+" },
-    { label: t.hero.statSatisfaction, value: "98%" },
+    { label: t.hero.statYears, value: "4+" },
+    { label: t.hero.statProjects, value: "200+" },
+    { label: t.hero.statSatisfaction, value: "99%" },
   ]
 
   return (
@@ -83,11 +83,12 @@ export default function Hero() {
             </a>
           </motion.div>
 
+          {/* stats – desktop (below text in left column) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-16 grid w-full max-w-md grid-cols-3 gap-8"
+            className="mt-16 hidden w-full max-w-md grid-cols-3 gap-8 lg:grid"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center gap-1 lg:items-start">
@@ -120,6 +121,23 @@ export default function Hero() {
           </div>
           <div className="absolute -bottom-6 -left-6 h-32 w-32 rounded-2xl bg-cta/10 blur-xl" />
           <div className="absolute -top-6 -right-6 h-40 w-40 rounded-2xl bg-sky-200/30 blur-xl" />
+
+          {/* stats – mobile (below image) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-10 grid w-full grid-cols-3 gap-8 lg:hidden"
+          >
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col items-center gap-1">
+                <span className="text-2xl font-bold text-primary sm:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
+                  {stat.value}
+                </span>
+                <span className="text-sm text-slate-500">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
