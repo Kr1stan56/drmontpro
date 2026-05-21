@@ -2,21 +2,23 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Languages } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-
-const navLinks = [
-  { href: "#hero", label: "Domov" },
-  { href: "#services", label: "Storitve" },
-  { href: "#about", label: "O nas" },
-  { href: "#why-us", label: "Zakaj mi" },
-  { href: "/galerija", label: "Galerija", isRoute: true },
-  { href: "#contact", label: "Kontakt" },
-]
+import { useLang } from "@/i18n/LanguageContext"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const { lang, t, toggleLang } = useLang()
+
+  const navLinks = [
+    { href: "#hero", label: t.nav.domov },
+    { href: "#services", label: t.nav.storitve },
+    { href: "#about", label: t.nav.oNas },
+    { href: "#why-us", label: t.nav.zakajMi },
+    { href: "/galerija", label: t.nav.galerija, isRoute: true },
+    { href: "#contact", label: t.nav.kontakt, isContact: true },
+  ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
@@ -34,13 +36,15 @@ export default function Header() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) =>
             link.isRoute ? (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-cta"
+                className={`text-sm transition-colors hover:text-cta ${
+                  link.isContact ? "font-semibold text-cta" : "font-medium text-slate-600"
+                }`}
               >
                 {link.label}
               </Link>
@@ -48,26 +52,38 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-cta"
+                className={`text-sm transition-colors hover:text-cta ${
+                  link.isContact ? "font-semibold text-cta" : "font-medium text-slate-600"
+                }`}
               >
                 {link.label}
               </a>
             )
           )}
-          <a
-            href="#contact"
-            className="rounded-lg bg-cta px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-sky-800 cursor-pointer"
+          <button
+            onClick={toggleLang}
+            className="ml-2 flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-600 transition-all hover:border-cta hover:text-cta cursor-pointer"
           >
-            Povpraševanje
-          </a>
+            <Languages className="h-4 w-4" />
+            {lang === "sl" ? "EN" : "SL"}
+          </button>
         </div>
 
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden cursor-pointer"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-2 text-xs font-medium text-slate-600 transition-all hover:border-cta hover:text-cta cursor-pointer"
+          >
+            <Languages className="h-4 w-4" />
+            {lang === "sl" ? "EN" : "SL"}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center justify-center rounded-lg p-2 text-slate-600 hover:bg-slate-100 cursor-pointer"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -85,7 +101,9 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-sm font-medium text-slate-600 transition-colors hover:text-cta"
+                    className={`text-sm transition-colors hover:text-cta ${
+                      link.isContact ? "font-semibold text-cta" : "font-medium text-slate-600"
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -94,19 +112,14 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-sm font-medium text-slate-600 transition-colors hover:text-cta"
+                    className={`text-sm transition-colors hover:text-cta ${
+                      link.isContact ? "font-semibold text-cta" : "font-medium text-slate-600"
+                    }`}
                   >
                     {link.label}
                   </a>
                 )
               )}
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="rounded-lg bg-cta px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-sky-800 cursor-pointer"
-              >
-                Povpraševanje
-              </a>
             </div>
           </motion.div>
         )}

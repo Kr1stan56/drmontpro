@@ -3,31 +3,13 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Users, Target, Clock, Award } from "lucide-react"
+import { useLang } from "@/i18n/LanguageContext"
 
-const highlights = [
-  {
-    icon: Users,
-    title: "Ustanovitelja",
-    description: "Denis Ramšak in Denis Rojc – dva izkušena poslovna partnerja z več kot 3 leti podjetniških izkušenj.",
-  },
-  {
-    icon: Target,
-    title: "Specializirane ekipe",
-    description: "Tri specializirane ekipe za montaže sončnih elektrarn, montažnih hiš ter kovinskih in lesenih konstrukcij.",
-  },
-  {
-    icon: Clock,
-    title: "Štiri tržišča",
-    description: "Delujemo v Sloveniji, Italiji, Hrvaški in Avstriji – vedno pravočasno in strokovno.",
-  },
-  {
-    icon: Award,
-    title: "Kakovost in roki",
-    description: "S poudarkom na strokovnosti, kakovosti in spoštovanju rokov zagotavljamo zanesljive rešitve.",
-  },
-]
+const icons = [Users, Target, Clock, Award]
 
 export default function About() {
+  const { t } = useLang()
+
   return (
     <section id="about" className="bg-slate-50 py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -42,35 +24,33 @@ export default function About() {
               className="text-3xl font-bold text-primary sm:text-4xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              O nas
+              {t.about.heading}
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
-              DR MontPro je podjetje d.o.o., ki sta ga ustanovila dva izkušena poslovna partnerja 
-              z istim imenom – <strong>Denis Ramšak</strong> in <strong>Denis Rojc</strong>. 
-              Združujeva znanje, natančnost in učinkovitost v vseh fazah montaže.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              Oba imava več kot tri leta podjetniških izkušenj kot samostojna podjetnika (s.p.). 
-              S poudarkom na strokovnosti, kakovosti in spoštovanju rokov zagotavljamo zanesljive 
-              rešitve tako za individualne kot poslovne stranke.
-            </p>
+            <p
+              className="mt-6 text-lg leading-relaxed text-slate-600"
+              dangerouslySetInnerHTML={{ __html: t.about.p1 }}
+            />
+            <p className="mt-4 text-lg leading-relaxed text-slate-600">{t.about.p2}</p>
             <div className="mt-8 grid grid-cols-2 gap-4">
-              {highlights.map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-100 text-cta">
-                    <item.icon className="h-4 w-4" />
+              {t.about.highlights.map((item, i) => {
+                const Icon = icons[i]
+                return (
+                  <div key={item.title} className="flex items-start gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-100 text-cta">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <h4
+                        className="text-sm font-semibold text-primary"
+                        style={{ fontFamily: "var(--font-heading)" }}
+                      >
+                        {item.title}
+                      </h4>
+                      <p className="mt-1 text-xs text-slate-500">{item.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4
-                      className="text-sm font-semibold text-primary"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {item.title}
-                    </h4>
-                    <p className="mt-1 text-xs text-slate-500">{item.description}</p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </motion.div>
 

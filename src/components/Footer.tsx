@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, ArrowUp } from "lucide-react"
 import Image from "next/image"
+import { useLang } from "@/i18n/LanguageContext"
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -13,15 +14,17 @@ function InstagramIcon({ className }: { className?: string }) {
   )
 }
 
-const footerLinks = [
-  { href: "#hero", label: "Domov" },
-  { href: "#services", label: "Storitve" },
-  { href: "#about", label: "O nas" },
-  { href: "#why-us", label: "Zakaj mi" },
-  { href: "#contact", label: "Kontakt" },
-]
-
 export default function Footer() {
+  const { t } = useLang()
+
+  const footerLinks = [
+    { href: "#hero", label: t.nav.domov },
+    { href: "#services", label: t.nav.storitve },
+    { href: "#about", label: t.nav.oNas },
+    { href: "#why-us", label: t.nav.zakajMi },
+    { href: "#contact", label: t.nav.kontakt },
+  ]
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
@@ -40,19 +43,22 @@ export default function Footer() {
                 className="h-[180px] w-auto object-contain"
               />
               <div className="text-sm leading-relaxed text-slate-400">
-                DR MontPro,<br />
-                montaže in storitve, d.o.o.
+                {t.footer.company.split("\n").map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    {i === 0 && <br />}
+                  </span>
+                ))}
               </div>
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
-              Specializirani za montažo sončnih elektrarn in gradbene storitve. 
-              Zanesljiv partner za vaše projekte po vsej Sloveniji.
+              {t.footer.description}
             </p>
           </div>
 
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">
-              Povezave
+              {t.footer.linksHeading}
             </h4>
             <ul className="space-y-3">
               {footerLinks.map((link) => (
@@ -70,7 +76,7 @@ export default function Footer() {
 
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">
-              Kontakt
+              {t.footer.contactHeading}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -130,13 +136,13 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 sm:flex-row">
           <p className="text-sm text-slate-500">
-            &copy; {new Date().getFullYear()} DR MontPro, montaže in storitve, d.o.o. Vse pravice pridržane.
+            &copy; {new Date().getFullYear()} {t.footer.rights}
           </p>
           <button
             onClick={scrollToTop}
             className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm text-slate-400 transition-all hover:bg-white/20 hover:text-white cursor-pointer"
           >
-            Na vrh
+            {t.footer.toTop}
             <ArrowUp className="h-4 w-4" />
           </button>
         </div>

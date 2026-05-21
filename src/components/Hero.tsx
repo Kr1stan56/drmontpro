@@ -3,14 +3,17 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { ArrowRight, Zap } from "lucide-react"
-
-const stats = [
-  { label: "Let izkušenj", value: "10+" },
-  { label: "Projektov", value: "50+" },
-  { label: "Zadovoljnih strank", value: "98%" },
-]
+import { useLang } from "@/i18n/LanguageContext"
 
 export default function Hero() {
+  const { t } = useLang()
+
+  const stats = [
+    { label: t.hero.statYears, value: "10+" },
+    { label: t.hero.statProjects, value: "50+" },
+    { label: t.hero.statSatisfaction, value: "98%" },
+  ]
+
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-50 to-white pt-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-sky-100/30 via-transparent to-transparent" />
@@ -24,7 +27,7 @@ export default function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 text-sm font-medium text-cta"
           >
             <Zap className="h-4 w-4" />
-            Montaža sončnih elektrarn in gradbenih storitev
+            {t.hero.badge}
           </motion.div>
 
           <motion.p
@@ -33,7 +36,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="mb-2 text-sm font-medium uppercase tracking-widest text-slate-400"
           >
-            DR MontPro, montaže in storitve, d.o.o.
+            {t.hero.company}
           </motion.p>
 
           <motion.h1
@@ -43,11 +46,11 @@ export default function Hero() {
             className="max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Montaža sončnih{" "}
+            {t.hero.titleBefore}{" "}
             <span className="bg-gradient-to-r from-cta to-sky-500 bg-clip-text text-transparent">
-              elektrarn
+              {t.hero.titleGradient}
             </span>{" "}
-            in gradbenih storitev
+            {t.hero.titleAfter}
           </motion.h1>
 
           <motion.p
@@ -56,8 +59,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-6 max-w-xl text-lg text-slate-600 sm:text-xl"
           >
-            Specializirani za montažo samooskrbnih sončnih elektrarn, gradbenih konstrukcij 
-            in zaključnih gradbenih del. Zanesljivost, kakovost in strokovnost na vsakem koraku.
+            {t.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -70,14 +72,14 @@ export default function Hero() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-xl bg-cta px-8 py-4 text-base font-semibold text-white shadow-lg shadow-sky-200 transition-all hover:bg-sky-800 hover:shadow-xl cursor-pointer"
             >
-              Pridobite ponudbo
+              {t.hero.cta}
               <ArrowRight className="h-5 w-5" />
             </a>
             <a
               href="#services"
               className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-700 transition-all hover:bg-slate-50 cursor-pointer"
             >
-              Naše storitve
+              {t.hero.secondaryCta}
             </a>
           </motion.div>
 
