@@ -54,7 +54,7 @@ export default function Contact() {
                   >
                     Naslov
                   </h4>
-                  <p className="mt-1 text-slate-600">Rakuševa ulica 8, 1000 Ljubljana</p>
+                  <p className="mt-1 text-slate-600">Se bo dodalo</p>
                 </div>
               </div>
 
@@ -194,7 +194,7 @@ export default function Contact() {
           className="mt-12 overflow-hidden rounded-2xl shadow-sm"
         >
           <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=14.495%2C46.038%2C14.515%2C46.050&layer=mapnik&marker=46.044%2C14.505"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=14.495%2C46.038%2C14.515%2C46.050&layer=mapnik"
             width="100%"
             height="350"
             style={{ border: 0 }}
