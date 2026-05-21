@@ -104,14 +104,15 @@ export default function Hero() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mt-16 flex-1 lg:mt-0"
+          className="relative mt-16 w-full lg:mt-0 lg:flex-1"
         >
-          <div className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden rounded-3xl shadow-2xl shadow-sky-200/50">
+          <div className="relative mx-auto w-full max-w-lg overflow-hidden rounded-3xl shadow-2xl shadow-sky-200/50">
             <Image
               src="/prvaslika.jpg"
               alt="DR MontPro"
-              fill
-              className="object-cover"
+              width={800}
+              height={600}
+              className="h-auto w-full object-cover"
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
