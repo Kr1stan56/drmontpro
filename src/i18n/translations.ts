@@ -26,7 +26,7 @@ export type TranslationKeys = {
     heading: string
     subtitle: string
     regions: string[]
-    items: { title: string; desc: string; tags: string[] }[]
+    items: { title: string; desc: string; tags: string[]; image: string }[]
     galleryCta: string
   }
   about: {
@@ -105,21 +105,25 @@ const translations: Record<Lang, TranslationKeys> = {
           title: "Montaža sončnih elektrarn",
           desc: "Celovita montaža samooskrbnih sončnih elektrarn za gospodinjstva in podjetja. Načrtovanje, namestitev in priklop.",
           tags: ["Samooskrba", "Strešne", "Zemeljske"],
+          image: "/images/gallery/solar.jpg",
         },
         {
           title: "Montaža montažnih hiš",
           desc: "Strokovna montaža montažnih hiš po sistemu ključ v roke. Hitra in zanesljiva izvedba.",
           tags: ["Montažne hiše", "Ključ v roke", "Hitra gradnja"],
+          image: "/images/gallery/montaža.jpg",
         },
         {
           title: "Montaža kovinskih konstrukcij",
           desc: "Montaža jeklenih nosilcev, hal, nadstreškov in drugih kovinskih konstrukcij po meri.",
           tags: ["Jeklene konstrukcije", "Hale", "Nadstreški"],
+          image: "/images/gallery/montaža2.jpg",
         },
         {
           title: "Montaža lesenih konstrukcij",
           desc: "Montaža lesenih nosilnih konstrukcij, brunaric, strešnih kritin in lesenih objektov.",
           tags: ["Lesene konstrukcije", "Brunarice", "Strehe"],
+          image: "/images/gallery/lesen2.jpg",
         },
       ],
       galleryCta: "Ogled galerije projektov",
@@ -211,21 +215,25 @@ const translations: Record<Lang, TranslationKeys> = {
           title: "Solar Power Plants",
           desc: "Complete installation of self-sufficient solar power plants for households and businesses. Planning, installation and grid connection.",
           tags: ["Self-supply", "Roof-mounted", "Ground-mounted"],
+          image: "/images/gallery/solar.jpg",
         },
         {
           title: "Prefab Houses",
           desc: "Professional turnkey prefab house installation. Fast and reliable execution.",
           tags: ["Prefab houses", "Turnkey", "Fast construction"],
+          image: "/images/gallery/montaža.jpg",
         },
         {
           title: "Steel Structures",
           desc: "Installation of steel beams, halls, canopies and other custom metal structures.",
           tags: ["Steel structures", "Halls", "Canopies"],
+          image: "/images/gallery/montaža2.jpg",
         },
         {
           title: "Wood Structures",
           desc: "Installation of timber load-bearing structures, log cabins, roofing and wooden buildings.",
           tags: ["Wood structures", "Log cabins", "Roofs"],
+          image: "/images/gallery/lesen2.jpg",
         },
       ],
       galleryCta: "View Project Gallery",
