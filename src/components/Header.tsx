@@ -32,7 +32,7 @@ export default function Header() {
             className="h-12 w-auto object-contain"
           />
           <span className="text-lg font-bold text-primary" style={{ fontFamily: "var(--font-heading)" }}>
-            DR Mont
+            DR MontPro
           </span>
         </Link>
 
