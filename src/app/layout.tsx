@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Poppins, Open_Sans } from "next/font/google"
 import "./globals.css"
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper"
+import { Analytics } from "@vercel/analytics/next"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -53,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sl" className={`${poppins.variable} ${openSans.variable} h-full scroll-smooth antialiased`}>
-      <body className="min-h-full flex flex-col"><ClientLayoutWrapper>{children}</ClientLayoutWrapper></body>
+      <body className="min-h-full flex flex-col"><Analytics /><ClientLayoutWrapper>{children}</ClientLayoutWrapper></body>
     </html>
   )
 }
